@@ -21,7 +21,7 @@ import { CheckInPipe } from './shared/components/pipes/check-in.pipe';
   imports: [
     BrowserModule
   ],
-  providers: [PassengerService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

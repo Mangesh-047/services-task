@@ -3,7 +3,9 @@ import { Ipassanger } from "../models/passenger";
 
 
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class PassengerService {
 
     //api call
