@@ -1,0 +1,12 @@
+<app-pass-count></app-pass-count>
+
+
+<ul class="list-group">
+    <!-- [ngClass]="{'active': pass.checkedIn}" -->
+    <li class="list-group-item" *ngFor="let pass of passengerArr" [ngClass]="{'text-danger': !pass.checkedIn}">
+        {{pass.fullname}}
+    </li>
+</ul>
+
+
+<app-pass-card [passObj]="pass" *ngFor="let pass of passengerArr"></app-pass-card>

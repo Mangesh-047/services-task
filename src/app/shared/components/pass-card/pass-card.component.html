@@ -1,0 +1,26 @@
+<div class="card my-3 bg-light">
+    <div class="card-body">
+        <p>
+            Name:
+            <strong> {{passObj.fullname}}</strong>
+        </p>
+
+        <p>
+            check-in Date:
+            <strong [ngClass]="{'text-danger': !passObj.checkInDate}">
+                {{passObj.checkInDate | checkIn}}
+            </strong>
+            <!-- check-in Status: {{passObj.checkedIn}} -->
+        </p>
+        <p>
+            childern: {{passObj.children | convertData}}
+        </p>
+
+
+        <div class="text-right">
+
+            <button class="btn btn-primary">Edit</button>
+            <button class="btn btn-danger ml-2">Delete</button>
+        </div>
+    </div>
+</div>
