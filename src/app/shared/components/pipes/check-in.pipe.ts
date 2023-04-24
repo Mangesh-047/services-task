@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CheckInPipe implements PipeTransform {
 
-  transform(value: number | null,) {
+  transform(value: number | null,): string {
 
     if (!value) {
       return `Not check-In`

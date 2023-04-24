@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PassCountComponent implements OnInit {
 
+
+
   constructor() { }
 
   ngOnInit(): void {
+
+
   }
+
+
 
 }

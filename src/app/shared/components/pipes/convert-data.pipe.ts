@@ -6,7 +6,7 @@ import { Ichild } from '../../models/passenger';
 })
 export class ConvertDataPipe implements PipeTransform {
 
-  transform(value: Ichild[] | null) {
+  transform(value: Ichild[] | null): Array<string> | 0 {
 
     // console.log(value);
 
