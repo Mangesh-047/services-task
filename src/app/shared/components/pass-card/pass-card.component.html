@@ -1,26 +1,39 @@
 <div class="card my-3 bg-light">
     <div class="card-body">
-        <p>
-            Name:
-            <strong> {{passObj.fullname}}</strong>
-        </p>
+
+        <div class="form-group">
+
+            <input type="text" value="{{passObj.fullname}}" class="form-control" #fname [disabled]="!isEditable">
+        </div>
 
         <p>
             check-in Date:
             <strong [ngClass]="{'text-danger': !passObj.checkInDate}">
-                {{passObj.checkInDate | checkIn}}
+                {{passObj.checkInDate? (passObj.checkInDate| date): 'Not-cheked In' }}
             </strong>
             <!-- check-in Status: {{passObj.checkedIn}} -->
         </p>
         <p>
-            childern: {{passObj.children | convertData}}
+            childern: {{passObj.children ? passObj.children.length: 0}}
         </p>
 
 
         <div class="text-right">
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon" (click)="onEdit()"
+                *ngIf="!isEditable">
+                <mat-icon>edit</mat-icon>
+            </button>
 
-            <button class="btn btn-primary">Edit</button>
-            <button class="btn btn-danger ml-2">Delete</button>
+            <button mat-mini-fab color="accent" aria-label="Example icon button with a delete icon"
+                (click)="onUpdateName(fname)" *ngIf="isEditable">
+                <mat-icon>done</mat-icon>
+            </button>
+
+
+            <button mat-mini-fab color="warn" class="ml-2" aria-label="Example icon button with a delete icon"
+                (click)="onDelete(fname)">
+                <mat-icon>delete</mat-icon>
+            </button>
         </div>
     </div>
 </div>

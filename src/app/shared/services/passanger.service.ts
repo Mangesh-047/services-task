@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Ipassanger } from "../models/passenger";
+import { SnackbarService } from "./snackbar.service";
 
 
 
@@ -42,5 +43,33 @@ export class PassengerService {
         children: null
     }];
 
+    constructor(private _snackbar: SnackbarService) { }
 
+    getPassArray() {
+        return this.passengerArray
+    }
+
+
+    updatePassName(id: number, name: string) {
+
+        this.passengerArray.forEach(e => {
+            if (e.id === id) {
+                e.fullname = name
+            }
+        })
+
+        this._snackbar.snackBarOpen(`Passenger name is Changed to ${name}`)
+
+
+    }
+
+    deletePass(id: number, name: string) {
+        let delId = this.passengerArray.findIndex(e => e.id === id)
+
+        this.passengerArray.splice(delId, 1)
+
+        this._snackbar.snackBarOpen(`Passenger name is Deleted ${name}`)
+
+        // console.log(delId)
+    }
 }

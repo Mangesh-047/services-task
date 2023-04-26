@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pass-count',
@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PassCountComponent implements OnInit {
 
-
-
+  @Input()
+  passCount!: number;
+  @Input()
+  checkIn!: number
   constructor() { }
 
   ngOnInit(): void {

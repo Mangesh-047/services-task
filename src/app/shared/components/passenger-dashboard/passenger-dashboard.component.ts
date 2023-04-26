@@ -9,16 +9,16 @@ import { Ipassanger } from '../../models/passenger';
 })
 export class PassengerDashboardComponent implements OnInit {
 
-
+  checkIn!: number
   passengerArr: Array<Ipassanger> = [];
 
   constructor(private _passenger: PassengerService) {
-
-    console.log(this._passenger.passengerArray);
-    this.passengerArr = this._passenger.passengerArray
   }
 
   ngOnInit(): void {
+    console.log(this._passenger.passengerArray);
+    this.passengerArr = this._passenger.getPassArray()
+    this.checkIn = this._passenger.getPassArray().filter(e => e.checkedIn === true).length
   }
 
 }
